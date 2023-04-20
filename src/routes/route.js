@@ -54,3 +54,72 @@ router.get('/student/:studentName',function(req,res){
 })
 
 module.exports = router;
+
+router.get('/pal',function(req,res){
+    res.send("Pal Bijewar")
+})
+
+
+router.get('/movies', function (req, res) {
+
+    res.send(movies)
+})
+
+router.get('/movies/:indexNumber', function (req, res) {
+    let index = req.params.indexNumber
+    // res.send = movies[index]  ====> problem 2 
+    // problem 3 
+    if (index < 0 || index > movies.length) {
+        res.send("Invalid Request")
+    }
+    else {
+        res.send(movies[index])
+    }
+})
+router.get('/films', function (req, res) {
+    let movies_obj = [
+        {
+            id: 1,
+            name: "The Shining",
+        },
+        {
+            id: 2,
+            name: "Incendies",
+        },
+        {
+            id: 3,
+            name: "Rang de Basanti",
+        },
+        {
+            id: 4,
+            name: "Finding Nemo",
+        },
+    ];
+    res.send(movies_obj)
+})
+
+router.get('/films/:filmId',function(req,res){
+    let movies_obj = [
+        {
+            id: 1,
+            name: "The Shining",
+        },
+        {
+            id: 2,
+            name: "Incendies",
+        },
+        {
+            id: 3,
+            name: "Rang de Basanti",
+        },
+        {
+            id: 4,
+            name: "Finding Nemo",
+        },
+    ];
+    
+    let idx = req.params.filmId
+    let film = movies_obj.find((element)=> element.id == idx)
+    res.send(film)
+    
+})
