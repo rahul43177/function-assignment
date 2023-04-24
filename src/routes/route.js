@@ -30,6 +30,9 @@ router.get('/test-me', function (req, res) {
     let z = lodash.union([23,43,23,44],[43,65,75,45],[45,22,12,23],[75,57,98,22],[78,98,45,33])
     console.log(z)
 
+    formatting.upperCase()
+    formatting.lowerCase()
+    formatting.trim()
 
     console.log(lodash.fromPairs(pairs))
     res.send('This should be working!')
