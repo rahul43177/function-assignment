@@ -1,14 +1,13 @@
 const express = require('express')
 const router = express.Router()
 const bodyParser = require('body-parser')
-const userModel = require('../moodels/userModel')
+const userController = require('../controllers/userController')
+const bookController = require('../controllers/bookControllers')
+router.post('/createUser',userController.createUser)
+router.post('/allUserData',userController.userData)
 
-
-router.post('/createUser',  async function (req, res) { 
-    let data = req.body
-    let savedData = await userModel.create(data)
-    res.send({msg : savedData})
-})
+router.post('/createBook',bookController.createBookData)
+router.post('/getBook',bookController.getBook)
 
 
 
