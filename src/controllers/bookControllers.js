@@ -14,13 +14,36 @@ let bookList = async function(req,res) {    //here we will use find to get all t
 }
 
 let getBooksByYear = async function (req,res){
-    let data = req.body.year 
-    if  (data == bookModel.find({year : data}) ) {
-        let a = bookModel.find().select({year : 1})
-        res.send({data : a})
-    }
+    let year = req.query.year  //to remember give the input in query not in body
+    let booksInYear = await bookModel.find({year:year})
+    res.send({msg : booksInYear})
 }
+
+let getParticularBooks = async function(req,res) {
+    let data = req.body
+    let sendBook = await bookModel.find(data)
+    res.send({data : sendBook})
+}
+
+let getXINRBooks = async function(req,res) {
+    let sendBook = await bookModel.find({
+        $or : [{"price.indianPrice": "100INR"},{"price.indianPrice":"200INR"},{"price.indianPrice":"500INR"}]
+    }) 
+    res.send({msg:sendBook})
+}
+const getRandomBooks = async function(req,res){
+    const sendBook = await bookModel.find({
+     $or : [ {totalPages : { $gt : 500}},{stockAvailable: true}]
+     })
+    res.send({msg : sendBook})
+}
+
+
+
 
 module.exports.createBook = createBook
 module.exports.bookList = bookList
 module.exports.getBooksByYear = getBooksByYear
+module.exports.getParticularBooks = getParticularBooks
+module.exports.getXINRBooks = getXINRBooks
+module.exports.getRandomBooks = getRandomBooks

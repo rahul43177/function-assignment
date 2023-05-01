@@ -11,8 +11,8 @@ const bookController = require('../controllers/bookControllers')
 router.post('/createBook',bookController.createBook)  //first problem done 
 router.post('/bookList',bookController.bookList)
 router.post('/getBooksByYear',bookController.getBooksByYear)
-
-
-
+router.post('/getParticularBook',bookController.getParticularBooks)
+router.get('/getXINRBooks',bookController.getXINRBooks)
+router.post('/getRandomBooks',bookController.getRandomBooks)
 
 module.exports = router

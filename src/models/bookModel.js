@@ -16,7 +16,7 @@ const bookSchema = new mongoose.Schema({
     authorName : String , 
     totalPages : Number ,
     stockAvailable : Boolean
-},{timestamps : true})
+})
 
 
 module.exports = mongoose.model('Newbook',bookSchema)
