@@ -1,6 +1,6 @@
 const mongoose = require('mongoose') //imported the mongoose here 
 const bookSchema = new mongoose.Schema({
-    BookName : String ,
+    name : String ,
     author_id : {
         type : Number ,
         required : true ,
@@ -12,3 +12,12 @@ const bookSchema = new mongoose.Schema({
 
 
 module.exports = mongoose.model('Book1',bookSchema)
+/*
+   { 
+        name:"Two states",
+        author_id:1,
+        price:50,
+        ratings:4.5,
+    } ,
+
+**/

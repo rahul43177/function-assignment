@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 let authorSchema = new mongoose.Schema({
-    authod_id : {
+    author_id : {
         type : Number ,
         required : true
     },
@@ -10,3 +10,10 @@ let authorSchema = new mongoose.Schema({
 })
 
 module.exports=mongoose.model('author',authorSchema)
+/* {    
+
+author_id:1,
+author_name:"Chetan Bhagat",
+age:25,
+address:"New delhi"
+} ,  */
