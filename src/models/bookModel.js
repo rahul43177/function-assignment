@@ -1,15 +1,14 @@
 const mongoose = require('mongoose') //imported the mongoose here 
 const bookSchema = new mongoose.Schema({
-    bookName : String ,
-    authorName : String ,
-    category : {
-        type : String ,
-        enum : ["horror", "thriller" , "romance" , "self-help"]    
+    BookName : String ,
+    author_id : {
+        type : Number ,
+        required : true ,
     },
-    sales : Number ,
-    year : Number
-},{timestamps : true})
+    price : Number ,
+    rating : Number
+})
 
 
 
-module.exports = mongoose.model('Book',bookSchema)
+module.exports = mongoose.model('Book1',bookSchema)
