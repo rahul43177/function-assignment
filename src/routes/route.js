@@ -14,5 +14,5 @@ router.post('/getBooksByYear',bookController.getBooksByYear)
 router.post('/getParticularBook',bookController.getParticularBooks)
 router.get('/getXINRBooks',bookController.getXINRBooks)
 router.post('/getRandomBooks',bookController.getRandomBooks)
-
+router.get('/bookPrice', bookController.bookPrice)
 module.exports = router

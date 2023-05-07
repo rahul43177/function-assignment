@@ -37,6 +37,11 @@ const getRandomBooks = async function(req,res){
      })
     res.send({msg : sendBook})
 }
+const bookPrice = async function(req,res) {
+    let price = await bookModel.findOne()
+    res.send({price})
+}
+
 
 
 
@@ -47,3 +52,4 @@ module.exports.getBooksByYear = getBooksByYear
 module.exports.getParticularBooks = getParticularBooks
 module.exports.getXINRBooks = getXINRBooks
 module.exports.getRandomBooks = getRandomBooks
+module.exports.bookPrice=bookPrice
