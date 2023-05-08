@@ -1,13 +1,21 @@
 const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
-    firstName : String , 
-    lastName : String , 
-    mobileNo : Number , 
-    gender : String ,
-    emailId : String ,
-    age : Number 
-}, {timestamps : true})
+    name : String , 
+    balance : {
+        type : Number , 
+        default : 100
+    },
+    address : String , 
+    age : Number , 
+    gender : {
+        type : String , 
+        enum : ["male" , "female" , "other"]
+    },
+    isFreeAppUser : {
+        type : Boolean ,
+        default : false 
+    }
+}, {timestamps:true})
 
-
-module.exports = mongoose.model('User',userSchema)  //always use single bracket warna error deta hai 
+module.exports = moongose.model('User',userSchema)
