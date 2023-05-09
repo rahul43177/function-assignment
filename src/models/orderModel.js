@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const object_Id = mongoose.Schema.Types.object_Id
+const object_Id = mongoose.Schema.Types.ObjectId
 const orderSchema = new mongoose.Schema({
     userId : {
         type : object_Id ,
@@ -10,8 +10,15 @@ const orderSchema = new mongoose.Schema({
         ref : 'Product'
     },
     amount : Number ,
-    isFreeAppuser : Boolean ,
+    isFreeAppUser : Boolean ,
     date : String 
 },{timestamps : true})
 
 module.exports = mongoose.model('Order',orderSchema)
+
+
+
+/**  
+userId - 64595879d873718029257ad5
+product id = 6459597cd873718029257ad9
+ */
